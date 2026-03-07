@@ -1,0 +1,49 @@
+package Strings;
+
+public class Longest_palandromic_substring {
+	public static boolean ispalan(String s) {
+		int i=0, j=s.length()-1;
+		
+		while(i<j) {
+			char ch1=s.charAt(i);
+			char ch2=s.charAt(j);
+			if(ch1!=ch2) {
+				return false;
+				
+			}
+			i++;
+			j--;
+		}
+		return true;
+	}
+	
+	public static String longestpalan(String s,int i, int j) {
+		int max=0, start=0,end=0;
+		int n=s.length();
+		
+		
+		for( i=0; i<n; i++) {
+			for( j=1; j<n; j++) {
+				if(ispalan(s)) {
+					if(j-i+1> max) {
+						max=j-i+1;
+						start=i;
+						end=j;
+					}
+				}
+			}
+		}
+
+		 return s.substring(start, end + 1);
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="abcabadef";
+		
+ // System.out.println("longest palandromic substring"+longestpalan(s,i,j));
+		  
+	}
+
+}
